@@ -1,0 +1,11 @@
+--- ligo-segments-1.4.0/setup.py.orig	2021-08-23 10:59:19.627657200 +0200
++++ ligo-segments-1.4.0/setup.py	2023-01-21 17:47:52.925218598 +0100
+@@ -17,7 +17,7 @@
+ 
+ import os.path
+ import re
+-from distutils.core import setup, Extension
++from setuptools import setup, Extension
+ import sys
+ 
+ 

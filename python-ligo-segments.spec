@@ -9,7 +9,7 @@ Summary:	Representations of semi-open intervals
 Summary(pl.UTF-8):	Reprezentacja przedziałów jednostronnie otwartych
 Name:		python-ligo-segments
 Version:	1.4.0
-Release:	2
+Release:	3
 License:	GPL v3+
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/ligo-segments/

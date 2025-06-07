@@ -3,19 +3,21 @@
 %bcond_without	python2		# CPython 2.x module
 %bcond_without	python3		# CPython 3.x module
 %bcond_with	py2_tests	# python2 based testing (requires no longer supported lal module)
-%bcond_without	py3_tests	# python3 based testing
+%bcond_with	py3_tests	# python3 based testing (don't work due to outdated test API)
 
 Summary:	Representations of semi-open intervals
 Summary(pl.UTF-8):	Reprezentacja przedziałów jednostronnie otwartych
 Name:		python-ligo-segments
 Version:	1.4.0
-Release:	3
+Release:	4
 License:	GPL v3+
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/ligo-segments/
 Source0:	https://files.pythonhosted.org/packages/source/l/ligo-segments/ligo-segments-%{version}.tar.gz
 # Source0-md5:	ca0627db1385379ae1652f09826ea7c0
 Patch0:		ligo-segments-setuptools.patch
+Patch1:		PyVarObject.patch
+Patch2:		python3.13.patch
 URL:		https://pypi.org/project/ligo-segments/
 %if %{with python2}
 BuildRequires:	python-modules >= 1:2.7
@@ -63,6 +65,8 @@ operacji na przedziałach jednostronnie otwartych.
 %prep
 %setup -q -n ligo-segments-%{version}
 %patch -P 0 -p1
+%patch -P 1 -p1
+%patch -P 2 -p1
 
 %build
 %if %{with python2}

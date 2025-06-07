@@ -1,0 +1,18 @@
+--- ligo-segments-1.4.0/src/segmentlist.c.orig	2025-06-07 23:23:42.639992977 +0200
++++ ligo-segments-1.4.0/src/segmentlist.c	2025-06-07 23:23:28.316659646 +0200
+@@ -246,11 +246,15 @@
+ 		PyErr_SetObject(PyExc_TypeError, (PyObject *) l);
+ 		return -1;
+ 	}
++#if PY_MAJOR_VERSION < 3
+ 	PyObject *result = _PyList_Extend(l, v);
+ 	if(!result)
+ 		return -1;
+ 	Py_DECREF(result);
+ 	return 0;
++#else
++	return PyList_Extend((PyObject *) l, v);
++#endif
+ }
+ 
+ 
